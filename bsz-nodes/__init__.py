@@ -7,7 +7,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {}
 for finder in pkgutil.iter_modules(__path__):
     try:
         spec = finder.module_finder.find_spec(finder.name)
-        if  isinstance(spec.loader, importlib.machinery.SourceFileLoader):
+        if isinstance(spec.loader, importlib.machinery.SourceFileLoader):
             mod = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(mod)
             NODE_CLASS_MAPPINGS |= mod.NODE_CLASS_MAPPINGS
